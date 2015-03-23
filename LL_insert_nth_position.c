@@ -21,13 +21,17 @@ void Insert(int data, int n){
         head = temp1;
         return; // Return from here, and not executing furthur. 
     }
-    struct Node *temp2 = head;// Start with head, then run a loop
+    
+
+    struct Node *temp2 = head;// Start at the head, then run a loop
 
     int i;
-    for(i = 0; i<n-2; i++){//point temp2 to (n-1)th node
-        temp2 = temp2->next;
+    for(i = 0; i<n-2; i++){// go to (n-1)Node 
+        temp2 = temp2->next; //** 一句话就是说，我们想temp2 指向 (n-1)th Node, 那就要跑for loop (n-2)次
+				//因为 (n-2) 的 next 就是 (n-1)
     }
-    temp1->next = temp2->next;
+   
+    temp1->next = temp2->next; // Now, if you think about temp2. Its address and its next address are the same. And they are (n-1)Node's address 
     temp2->next = temp1;
 }
 
