@@ -19,7 +19,7 @@ void Insert(int data, int n){
     if(n == 1){
         temp1->next = head;
         head = temp1;
-        return;
+        return; // Return from here, and not executing furthur. 
     }
     struct Node *temp2 = head;// Start with head, then run a loop
 
