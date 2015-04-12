@@ -11,32 +11,34 @@ using namespace std;
 struct Node{
     double value; // Data
     //Node* next;
-    Node *N, *P;
+    Node* next;
+
+    // Initialization
     Node(double y)
     {
         value = y;
-        N = P = NULL;
+        next = NULL; // head pointer points to NULL
     }
 };
 
 class doubleLinkedList{
     Node* front;
-    Node* back;
+  //  Node* back;
 
 public:
     doubleLinkedList()
     {
         front = NULL;
-        back = NULL;
+    //    back = NULL;
     }
     ~doubleLinkedList(){
         destroyList();
     }
     void appendNodeFront (double x);
-    void appendNodeBack (double x);
+   // void appendNodeBack (double x);
 
     void dispNodesForward();
-    void dispNodesReverse();
+   // void dispNodesReverse();
     void destroyList();
 };
 
@@ -46,11 +48,11 @@ void doubleLinkedList::appendNodeFront(double x)
     if( front == NULL)
     {
         front = n;
-        back = n;
+       // back = n;
     }
     else{
             front->P = n;
-            n->N = front;
+            n->next = front;
             front = n;
     }
 }
@@ -86,11 +88,23 @@ int main(){
     doubleLinkedList* list = new doubleLinkedList();
     for( int i = 1; i < 4; i++ ){
         list->appendNodeFront(i*1.1);
+
         list->dispNodesForward();
-       
+       // list->dispNodesReverse();
     }
-	
+
+//    for( int i = 1; i < 4; i++ ){
+//        list->appendNodeBack(11.0 - (1.1 * i));
+//        cout << endl << endl;
+//        list->dispNodesForwad();
+//        list->dispNodesReverse();
+//
+//        cout << endl << endl;
+//    }
+
     delete list;
     return 0;
+
+
 
 }
